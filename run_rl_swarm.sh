@@ -141,34 +141,6 @@ if [ "$CONNECT_TO_TESTNET" = true ]; then
     cd modal-login
     # Check if the yarn command exists; if not, install Yarn.
 
-    # Node.js + NVM setup
-    if ! command -v node > /dev/null 2>&1; then
-        echo "Node.js not found. Installing NVM and latest Node.js..."
-        export NVM_DIR="$HOME/.nvm"
-        if [ ! -d "$NVM_DIR" ]; then
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-        fi
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-        nvm install node
-    else
-        echo "Node.js is already installed: $(node -v)"
-    fi
-
-    if ! command -v yarn > /dev/null 2>&1; then
-        # Detect Ubuntu (including WSL Ubuntu) and install Yarn accordingly
-        if grep -qi "ubuntu" /etc/os-release 2> /dev/null || uname -r | grep -qi "microsoft"; then
-            echo "Detected Ubuntu or WSL Ubuntu. Installing Yarn via apt..."
-            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-            sudo apt update && sudo apt install -y yarn
-        else
-            echo "Yarn not found. Installing Yarn globally with npm (no profile edits)…"
-            # This lands in $NVM_DIR/versions/node/<ver>/bin which is already on PATH
-            npm install -g --silent yarn
-        fi
-    fi
-
     ENV_FILE="$ROOT"/modal-login/.env
     if [[ "$OSTYPE" == "darwin"* ]]; then
         # macOS version
@@ -178,14 +150,6 @@ if [ "$CONNECT_TO_TESTNET" = true ]; then
         sed -i "3s/.*/SMART_CONTRACT_ADDRESS=$SWARM_CONTRACT/" "$ENV_FILE"
     fi
 
-    yarn install --immutable
-    echo "Building server"
-    yarn build > "$ROOT/logs/yarn.log" 2>&1
-    yarn start >> "$ROOT/logs/yarn.log" 2>&1 & # Run in background and log output
-
-    SERVER_PID=$!  # Store the process ID
-    echo "Started server process: $SERVER_PID"
-    sleep 5
 
     # Try to open the URL in the default browser
     if open http://localhost:3000 2> /dev/null; then
@@ -267,9 +231,9 @@ echo_blue ">> Post about rl-swarm on X/twitter! --> https://tinyurl.com/swarmtwe
 echo_blue ">> And remember to star the repo on GitHub! --> https://github.com/gensyn-ai/rl-swarm"
 
 if [ -n "$ORG_ID" ]; then
-    python /home/taygun/rl-swarm/full_patch.py
-    python /home/taygun/rl-swarm/fix_flash_attn.py
-    python /home/taygun/rl-swarm/fix_flash_attn.py
+    python /home/yourname/rl-swarm-rtx5000/full_patch.py
+    python /home/yourname/rl-swarm-rtx5000/fix_flash_attn.py
+    python /home/yourname/rl-swarm-rtx5000/fix_flash_attn.py
     python -m hivemind_exp.gsm8k.train_single_gpu \
         --hf_token "$HUGGINGFACE_ACCESS_TOKEN" \
         --identity_path "$IDENTITY_PATH" \
