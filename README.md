@@ -59,12 +59,17 @@ build login server using npm (not yarn)
 ```bash
 cd modal-login
 cp .env.example .env        # create .env then edit:
+```
 # RPC / contract details
+```bash
 NEXT_PUBLIC_ALCHEMY_API_KEY=RL2EtY6LXx2XCLPV3JZriJAB9mnELa2U
 NEXT_PUBLIC_PAYMASTER_POLICY_ID=4c37387c-2a55-4edd-b188-b5c44eb71e96
 SMART_CONTRACT_ADDRESS=0x6947c6E196a48B77eFa9331EC1E3e45f3Ee5Fd58
-
-npm install next@latest react@latest react-dom@latest
+```
+continue
+```bash
+sudo npm install -g npm@10.9.2
+npm install typescript@latest @types/react@latest @types/node@latest eslint-config-next@latest
 npm run dev        # localhost:3000
 ```
 
