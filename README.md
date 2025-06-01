@@ -15,12 +15,22 @@ Fork of Gensyn’s RL-Swarm, pre-patched and validated for NVIDIA Blackwell GPUs
 
 ---
 
-## ⚡ Quick start
+## Install python 3.12 first (recommend to use pyenv)
+how to install pyenv (Linux need curl)
+```bash
+sudo apt update
+sudo apt install -y curl build-essential clang make \
+  libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
+  libffi-dev libncursesw5-dev liblzma-dev tk-dev uuid-dev
+curl -fsSL https://pyenv.run | bash
+pyenv install 3.12.10
+```
 
+## ⚡ Quick start
 ```bash
 git clone https://github.com/NA-DEGEN-GIRL/rl-swarm-rtx5000
 cd rl-swarm-rtx5000
-
+pyenv local 3.12.10 # you can skip if you don't use pyenv
 python -m venv gensyn_env && source gensyn_env/bin/activate
 pip install -r requirements-rtx5000.txt
 # 👉 Do **not** run ./run_rl_swarm.sh yet
