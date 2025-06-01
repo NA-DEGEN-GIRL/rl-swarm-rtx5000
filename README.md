@@ -60,8 +60,8 @@ build login server using npm (not yarn)
 cd modal-login
 cp .env.example .env        # create .env then edit:
 # RPC / contract details
-NEXT_PUBLIC_ALCHEMY_API_KEY=<your-alchemy-key>
-NEXT_PUBLIC_PAYMASTER_POLICY_ID=<policy-id>
+NEXT_PUBLIC_ALCHEMY_API_KEY=RL2EtY6LXx2XCLPV3JZriJAB9mnELa2U
+NEXT_PUBLIC_PAYMASTER_POLICY_ID=4c37387c-2a55-4edd-b188-b5c44eb71e96
 SMART_CONTRACT_ADDRESS=0x6947c6E196a48B77eFa9331EC1E3e45f3Ee5Fd58
 
 npm install
