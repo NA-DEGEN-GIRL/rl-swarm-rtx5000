@@ -26,3 +26,4 @@ MODULE.bazel.lock
 .tmux.conf
 
 gensyn_env
+wandb/
