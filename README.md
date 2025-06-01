@@ -47,7 +47,7 @@ cd ~
 sudo apt update
 sudo apt remove --purge nodejs npm -y 2>/dev/null
 sudo apt autoremove -y
-rm -rf rl-swarm gensyn-testnet .nvm .npm .ngrok*
+rm -rf .nvm .npm .ngrok*
 ```
 install node22.x
 ```bash
