@@ -59,6 +59,7 @@ build login server using npm (not yarn)
 ```bash
 cd modal-login
 cp .env.example .env        # create .env then edit:
+mkdir temp-data
 ```
 # RPC / contract details
 ```bash
