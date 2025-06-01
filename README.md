@@ -41,6 +41,21 @@ python /home/<user>/rl-swarm-rtx5000/fix_flash_attn.py
 ```
 
 ## 🌐 Modal Login UI
+remove previous node installation if any
+```bash
+cd ~
+sudo apt update
+sudo apt remove --purge nodejs npm -y 2>/dev/null
+sudo apt autoremove -y
+rm -rf rl-swarm gensyn-testnet .nvm .npm .ngrok*
+```
+install node22.x
+```bash
+sudo apt-get update
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
 ```bash
 cd modal-login
 cp .env.example .env        # create .env then edit:
