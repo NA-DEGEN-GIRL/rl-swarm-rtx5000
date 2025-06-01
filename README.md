@@ -104,7 +104,10 @@ set path
 ```bash
 echo 'export PATH=/usr/local/cuda-12.8/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
 ```
-
+check whether cuda_12.8 is installed correctly
+```bash
+nvcc -V
+```
 
 Leave this terminal running, return to the main repo and start the swarm:
 ```bash
