@@ -73,6 +73,28 @@ sudo npm install -g npm@10.9.2
 npm install typescript@latest @types/react@latest @types/node@latest eslint-config-next@latest
 npm run dev        # localhost:3000
 ```
+remove cuda12.0 (you can skip)
+```bash
+sudo apt purge nvidia-cuda-toolkit nvidia-cuda-dev libcudart12 nvidia-cuda-gdb
+sudo apt autoremove
+```
+cuda 12.8 install, refer to the following website. choose your os
+following is the example of WSL2.0 ubuntu
+https://developer.nvidia.com/cuda-12-8-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
+```bash
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/12.8.0/local_installers/cuda-repo-wsl-ubuntu-12-8-local_12.8.0-1_amd64.deb
+sudo dpkg -i cuda-repo-wsl-ubuntu-12-8-local_12.8.0-1_amd64.deb
+sudo cp /var/cuda-repo-wsl-ubuntu-12-8-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda-toolkit-12-8
+```
+set path
+```bash
+echo 'export PATH=/usr/local/cuda-12.8/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
+```
+
 
 Leave this terminal running, return to the main repo and start the swarm:
 ```bash
