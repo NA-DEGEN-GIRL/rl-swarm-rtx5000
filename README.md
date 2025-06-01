@@ -55,7 +55,7 @@ sudo apt-get update
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
-
+build login server using npm (not yarn)
 ```bash
 cd modal-login
 cp .env.example .env        # create .env then edit:
